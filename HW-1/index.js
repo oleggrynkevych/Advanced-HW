@@ -15,20 +15,19 @@ console.log("Найдешевший батончик - Snikers: " + lowestPrice)
 const sum = priceSnickers + priceMars + priceNuts;
 console.log("Сума всіх батончиків: " + sum);
 
-const sumNew = Math.floor(priceSnickers + priceMars + priceNuts);
+const sumNew = Math.round(Math.floor(priceSnickers) + Math.floor(priceMars) + Math.floor(priceNuts));
 console.log ("Сума батончиків без копійок: " + sumNew);
 
-const sumNew_2 = Math.round(sumNew / 100)*100;
-console.log ("Сума батончиків, заокруглена до сотень: " + sumNew_2);
+const sumNewTwo = Math.round(sumNew / 100)*100;
+console.log ("Сума батончиків, заокруглена до сотень: " + sumNewTwo);
 
-const testing = sumNew_2 % 2 == 0;
+const testing = sumNewTwo % 2 == 0;
 console.log ("Чи є число заокругленої суми парним: " + testing);
 
 const change = 500 - sum;
 console.log ("Решта з 500 при покупці: " + change);
 
-let avarage = sum / 3;
-avarage = avarage.toFixed (2);
+const avarage = (sum / 3).toFixed (2);
 console.log ("Cереднє значення цін, округлене до другого знаку після коми: " + avarage);
 
 const discount = Math.round(Math.random() * sumNew / 10);
@@ -48,7 +47,7 @@ const unitInfo = `
 <p>Найдешевший батончик - Snikers: ${lowestPrice}</p>
 <p>Сума всіх батончиків: ${sum}</p>
 <p>Сума батончиків без копійок: ${sumNew}</p>
-<p>Сума батончиків, заокруглена до сотень: ${sumNew_2}</p>
+<p>Сума батончиків, заокруглена до сотень: ${sumNewTwo}</p>
 <p>Чи є число заокругленої суми парним: ${testing}</p>
 <p>Решта з 500 при покупці: ${change}</p>
 <p>Cереднє значення цін, округлене до другого знаку після коми: ${avarage}</p>
