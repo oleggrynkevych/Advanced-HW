@@ -19,18 +19,23 @@ if (numM.length > 0 && !isNaN(numM) && Number.isInteger(Number(numM))) {
 let question = confirm('Пропускати парні числа?');
 console.log(question);
 
-let sum;
+let sum = 0;
+
+const numMin = Math.min(numN, numM);
+const numMax = Math.max(numN, numM);
+
+let a;
 
 if (question == true) {
-    for (sum = 0; numN <= numM; ++numN) {
-        if (numN % 2 == 0) {
+    for (a = numMin; a <= numMax; ++a) {
+        if (a % 2 == 0) {
             continue
         }
-        sum += numN;
+        sum += a;
     } }
 else {
-    for (sum = 0; numN <= numM; ++numN) {
-        sum += numN;
+    for (a = numMin; a <= numMax; ++a) {
+        sum += a;
     }
 }
 
