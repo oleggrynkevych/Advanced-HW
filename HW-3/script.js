@@ -2,7 +2,7 @@
 let num = Math.round(Math.random() * 1000);
 
 function getMaxDigit(n){
-  if(n != 0) {
+  if(n) {
     let remainder = n % 10;
     return Math.max(remainder, getMaxDigit((n-remainder) / 10));
   } else { 
@@ -32,7 +32,11 @@ const calculateTaxes = (s, t, tm) => s - Math.round(s * (t + tm) / 100);
 
 // Функція, яка повертає випадкове ціле число в діапазоні від N до M.
 
-const getRandomNumber = (minNum, maxNum) => Math.round(Math.random() * (maxNum - minNum) + minNum);
+function getRandomNumber (minNum, maxNum) { 
+    if (minNum < maxNum) {
+    return Math.round(Math.random() * (maxNum - minNum) + minNum);
+}
+}
 
 // Функція, яка рахує скільки разів певна буква повторюється в слові. 
 
@@ -45,13 +49,13 @@ function convertCurrency(exchangeRate, result) {
   let money = prompt('Введіть суму');
   if (money.includes('$') && !isNaN(parseInt(money))) {
   result = parseInt(money) * exchangeRate;
-  return result;
+  return result + "UAH";
   } else if (money.includes('UAH') && !isNaN(parseInt(money))) {
   result = parseInt(money) / exchangeRate;
-  return result;
+  return result + "$";
   } else {
-  return alert('Wrong!');
-  }
+    return "Невірно вказане значення";  
+}
   } 
 
   // Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
