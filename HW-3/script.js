@@ -1,9 +1,9 @@
 // Функція, яка отримує будь-яке число та виводить найбільшу цифру в цьому числі.
-let num = Math.round(Math.random() * 1000);
+const num = Math.round(Math.random() * 1000);
 
 function getMaxDigit(n){
   if(n) {
-    let remainder = n % 10;
+    const remainder = n % 10;
     return Math.max(remainder, getMaxDigit((n-remainder) / 10));
   } else { 
       return 0;
@@ -11,10 +11,10 @@ function getMaxDigit(n){
 }
 
 // Функція, яка форматує ім'я, роблячи першу букву великою.
-let firstLetter = prompt("Your name is");
+const firstLetter = prompt("Your name is");
 
 function makeFirstLetter(t) {
-   if(t.trim() && t.length != 0) {
+   if(isNaN(t) && t.length != 0) {
     return t = t[0].toUpperCase() + t.toLowerCase().slice(1);
 } else {
     alert('False. Please, try again');
@@ -23,9 +23,9 @@ function makeFirstLetter(t) {
 
 // Функція, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
 
-let salary = 200000;
-let tax = 10;
-let taxMore = 1.5;
+const SALARY = 200000;
+const TAX = 10;
+const TAX_MORE = 1.5;
 
 const calculateTaxes = (s, t, tm) => s - Math.round(s * (t + tm) / 100);
 
@@ -40,8 +40,10 @@ function getRandomNumber (minNum, maxNum) {
 
 // Функція, яка рахує скільки разів певна буква повторюється в слові. 
 
-let word = "вандал";
-const countLetter = (word) => word.length - word.replace(/а/g, "").length;
+const WORD = "вандал";
+const LTR = "а";
+
+const countLetter = (w, l) => w.length - w.replaceAll(l, "").length;
 
 // Функція, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку.
 
@@ -50,7 +52,7 @@ function convertCurrency(exchangeRate, result) {
   if (money.includes('$') && !isNaN(parseInt(money))) {
   result = parseInt(money) * exchangeRate;
   return result + "UAH";
-  } else if (money.includes('UAH') && !isNaN(parseInt(money))) {
+  } else if (money.includes('UAH') || money.includes('uah') && !isNaN(parseInt(money))) {
   result = parseInt(money) / exchangeRate;
   return result + "$";
   } else {
@@ -62,14 +64,8 @@ function convertCurrency(exchangeRate, result) {
 
   function getRandomPassword() {
     lengthPassword = prompt('З якої кількості цифр повинен складатись Ваш пароль?');
-    if (Number.isInteger(+lengthPassword)) {
-    let password = Math.round(Math.random() * Math.pow(10, lengthPassword));
-    return password;
-    } else {
-    let password = Math.round(Math.random() * Math.pow(10, 8));
-    return password;
-    }
-    }
+    return (Number.isInteger(+lengthPassword)) ? Math.trunc(Math.random() * Math.pow(10, lengthPassword)) : Math.trunc(Math.random() * Math.pow(10, 8));
+}
     
     // Функція, яка видаляє всі букви з речення. 
 
@@ -81,11 +77,11 @@ console.log("Найбільша цифра у числі: " + num + " -> " + get
 
 console.log("Ім'я завжди з великої: " + makeFirstLetter(firstLetter));
 
-console.log("Зарплатня: " + salary + ' -> ' + "Зарплатня після сплати податків: " + calculateTaxes(salary, tax, taxMore));
+console.log("Зарплатня: " + SALARY + ' -> ' + "Зарплатня після сплати податків: " + calculateTaxes(SALARY, TAX, TAX_MORE));
 
 console.log("Випадкове число: " + getRandomNumber(50, 100));
 
-console.log('Буква "а"' + " у слові " + '"' + word + '"' + " повторюється таку кількість разів: " + countLetter(word));
+console.log("Буква " + LTR + " у слові " + '"' + WORD + '"' + " повторюється таку кількість разів: " + countLetter(WORD, LTR));
 
 console.log("Перевести долари у гривні чи навпаки: " + convertCurrency(35));
 
