@@ -22,7 +22,7 @@ function getTeams () {
         }
         }
     for(let i=0; i<3; i++){
-    pairs.push([`${boys[i]}` , `${girls[i]}`])
+    pairs.push([boys[i] , girls[i]])
     }
     return pairs
     }
@@ -32,7 +32,7 @@ function getTeams () {
 function getTeamsWithThemes() {
     const teamsThemes = [];
     for(let i=0; i<teams.length; i++){
-    teamsThemes.push([`${teams[i]}` , `${themes[i]}`])
+    teamsThemes.push([teams[i].join(' і ') , themes[i]])
     }
     return teamsThemes
     }
@@ -42,7 +42,7 @@ function getTeamsWithThemes() {
 function getStudentsWithMarks() {
     const studentsMarks = [];
     for(let i=0; i<students.length; i++){
-    studentsMarks.push([`${students[i]}` , +`${marks[i]}`])
+    studentsMarks.push([students[i] , +marks[i]])
     }
     return studentsMarks
     }
@@ -51,13 +51,11 @@ function getStudentsWithMarks() {
 
 function getTeamsWithMarks() {
     const getRandomInt = () => Math.floor(Math.random() * (Math.floor(5) - Math.ceil(1) + 1)) + Math.ceil(1);
-    const teamsMarks = [...teamsWithThemes];
-    for(let i=0; i<teamsWithThemes.length; i++){
-    teamsWithThemes[i].push(getRandomInt());
-    }
-    return teamsMarks
-    }
-
+    return newArr = teamsWithThemes.map((item) => {
+        return item.concat(getRandomInt())
+    })
+}
+    
 
 console.log(teams);
 console.log(teamsWithThemes);
