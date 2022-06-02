@@ -63,8 +63,11 @@ function convertCurrency(exchangeRate, result) {
   // Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 
   function getRandomPassword() {
-    lengthPassword = prompt('З якої кількості цифр повинен складатись Ваш пароль?');
-    return (Number.isInteger(+lengthPassword) && lengthPassword.length != 0 && lengthPassword != 0) ? Math.trunc(Math.pow(10, lengthPassword) + (Math.random() -1) * 9 * Math.pow(10, lengthPassword -1)) : Math.trunc(Math.pow(10, 8) + (Math.random() -1) * 9 * Math.pow(10, 7));
+    let = lengthPassword = prompt('З якої кількості цифр повинен складатись Ваш пароль?');
+    return (Number.isInteger(+lengthPassword) && 
+    lengthPassword.length != 0 && lengthPassword != 0) 
+    ? Math.trunc(Math.pow(10, lengthPassword) + (Math.random() -1) * 9 * Math.pow(10, lengthPassword -1)) 
+    : Math.trunc(Math.pow(10, 8) + (Math.random() -1) * 9 * Math.pow(10, 7));
 }
     
     // Функція, яка видаляє всі букви з речення. 
