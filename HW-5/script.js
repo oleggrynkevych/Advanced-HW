@@ -2,6 +2,7 @@
 
 function getRandomArray(length, min, max) {
     let randomNumbers = [];
+
     const randomInteger = () => Math.floor(min + Math.random() * (max + 1 - min));
 
     for (i = 0; i < length; i++) {
@@ -47,7 +48,7 @@ const getMedian = (...numbers) => {
     const newArray = numbers.filter(i => Number.isInteger(i)).sort((a, b) => a - b);
     const averageIndex = Math.floor(newArray.length / 2);
 
-    return (newArray.length % 2 == 0) 
+    return (newArray.length % 2 === 0) 
     ? (newArray[averageIndex] + newArray[averageIndex - 1]) / 2
     : newArray[averageIndex];
     }
@@ -58,24 +59,24 @@ const filterEvenNumbers = (...numbers) => numbers.filter((i) => i % 2 !== 0);
 
 // Функція, яка порахує кількість чисел більших 0
 
-const countPositiveNumbers = (...numbers) => (numbers.filter((i) => i>0)).length
+const countPositiveNumbers = (...numbers) => (numbers.filter((i) => i>0)).length;
 
 // Функція, яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
 
-const getDividedByFive = (...numbers) => numbers.filter((i) => i % 5 == 0);
+const getDividedByFive = (...numbers) => numbers.filter((i) => i % 5 === 0);
 
 // Функція, яка розбиває кожне слово на умовні склади по 3 букви
 
 function divideByThree(word) {
     const renewWord = (word.replaceAll(" ", "")).toLowerCase();
-    const result = []
+    const result = [];
     const letterArray = Array.from(renewWord)
 
     if (renewWord.length >= 3) {
         letterArray.forEach((item, index, arr) => result.push(arr.splice(index, 3, 0).join('')))
-        return result
+        return result;
     } else {
-        return alert("Слово повинне складатись зі щонайменше 3-х символів!")
+        return alert("Слово повинне складатись зі щонайменше 3-х символів!");
     }
     };
 
@@ -95,4 +96,4 @@ console.log('countPositiveNumbers(1, -8, 6, 0, 112, -7, 33) ', countPositiveNumb
 
 console.log('getDividedByFive(1, 105, 6, 55, 5) ', getDividedByFive(1, 105, 6, 55, 5));
 
-console.log('Розділить слово на склади по три літери: ', divideByThree(prompt("Введіть слово")));
+console.log('Розділить слово на склади по три літери: ', divideByThree(prompt("Введіть слово, яке поділиться на склади по три літери")));
