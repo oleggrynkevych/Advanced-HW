@@ -4,7 +4,7 @@ class Student {
         this.course = course;
         this.fullName = fullName;
         this.arrayMarks = [5, 4, 4, 5];
-        this.status = true;
+        this.learning = true;
     }
 
     getInfo () {
@@ -12,11 +12,11 @@ class Student {
     }
 
     get marks () {
-        return this.status ? this.arrayMarks : null;
+        return this.learning ? this.arrayMarks : null;
     }
 
     set marks (mark) {
-        if (this.status) this.arrayMarks.push(mark);
+        if (this.learning) this.arrayMarks.push(mark);
     }
 
     getAverageMark () {
@@ -24,11 +24,11 @@ class Student {
     }
 
     dismiss() {
-        return this.status = false;
+        return this.learning = false;
     }
 
     recover() {
-        return this.status = true;
+        return this.learning = true;
     }
 }
 
@@ -63,7 +63,7 @@ class BudgetStudent extends Student {
 
     getScholarship () {
             setInterval( () => {
-            if (this.status && this.getAverageMark() >= 4) {
+            if (this.learning && this.getAverageMark() >= 4) {
                 console.log(`Ви отримали ${this.scholarship} грн. стипендії`);
             } else {
                 console.log(`Ви не отримуєте степендії`);
