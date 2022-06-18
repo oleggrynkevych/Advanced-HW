@@ -16,4 +16,4 @@ function generateBlocksInterval () {
     }
 }
 
-generateBlocksInterval();
+document.body.querySelector("button").onclick = generateBlocksInterval;
