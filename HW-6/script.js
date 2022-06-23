@@ -63,9 +63,7 @@ console.log('Інформація загального виду по перед�
 // Функція, яка повертає імена студентів у алфавітному порядку
 
 function getStudentsNames(arr) {
-    const res = arr.map((i) => i.name).sort();
-
-    return res;
+    return arr.map((i) => i.name).sort();
 }
 
 console.log('Імена студентів у алфавітному порядку: ' , getStudentsNames(students));
@@ -73,15 +71,14 @@ console.log('Імена студентів у алфавітному поряд�
 // Функція, яка повертає найкращого студента зі списку по показнику середньої оцінки
 
 function getBestStudent(arr) {
-    
     const studentsWithAverageMarks = arr.map((i, index) => ({
         'name': i.name,
-        'avarageMark': getAverageMark(arr[index])
+        'averageMark': getAverageMark(arr[index])
     }));
 
-    const maxCount = Math.max(...studentsWithAverageMarks.map(i => i.avarageMark));
+    const maxCount = Math.max(...studentsWithAverageMarks.map(i => i.averageMark));
 
-    return studentsWithAverageMarks.filter(i => i.avarageMark == maxCount)
+    return studentsWithAverageMarks.filter(i => Number(i.averageMark) === maxCount)
         .map(i => i.name).toString();
 }
 
