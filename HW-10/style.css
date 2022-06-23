@@ -1,0 +1,27 @@
+.box{
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    height: 10%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallbox{
+    width: 8%;
+    border-radius: 7px;
+    background-color: rgb(159 183 24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(12 70 37);
+}
+
+.smallbox:hover, .smallbox.active{
+    background-color: rgb(12 70 37);
+    color: rgb(159 183 24);
+}
