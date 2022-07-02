@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+*{
+    font-family: 'Alfa Slab One', cursive;
+}
+
+body{
+    background: url(starwars.jpeg);
+}
+
+#btn1, #btn2 {
+    padding: 20px 20px;
+    margin: 20px 20px;
+    display: inline-block;
+    background: #080454;
+    color: white;
+    letter-spacing: 2px;
+    border: 3px solid ;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#btn1:hover, #btn2:hover {
+    color: #080454;
+    background: white;
+    box-shadow: 0 0 50px white;
+}
+
+.container, .container_two{
+    margin: 20px 5%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 210px;
+    height: 230px;
+    background-color: rgb(2 2 30);
+    border: 3px solid #fff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.8rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 4%;
+}
+
+#name{
+    color: #fff;
+    text-shadow: 
+    0 0 5px #ff7bac,
+    0 0 20px #ff7bac,
+    0 0 40px #ff7bac,
+    0 0 60px #ff7bac,
+    0 0 80px #ff7bac,
+    0 0 100px #ff7bac;
+}
+
+#birth_year{
+    color: #fff;
+    margin: 15% 0;
+}
+
+#gender{
+    color: #fff;
+}
+
+.list {
+    margin: 2% 3%;
+}
+
+#nameOfPlanet{
+    width: 300px;
+    height: 60px;
+    color: #fff;
+    background-color: rgb(2 2 30);
+    border: 3px solid #fff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.8rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4%;
+}
+
+.btn_next{
+    width: 300px;
+    height: 60px;
+    padding: 0 20px;
+    background: #080454;
+    color: white;
+    letter-spacing: 2px;
+    border: 3px solid ;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 3% 4%;
+}
+
+.btn_next:hover{
+    color: #080454;
+    background: white;
+    box-shadow: 0 0 50px white;
+}
