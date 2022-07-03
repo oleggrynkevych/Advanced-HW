@@ -17,7 +17,9 @@ function keyPlay(keyValue, btn) {
     }
 }
 
-for(let el = 1; el <= 9; el++) {
+const blocksArray = document.getElementsByClassName(`smallbox`);
+
+for(let el = 1; el <= blocksArray.length; el++) {
     const btn = document.getElementById(`btn${el}`);
     const keyValue = btn.textContent;
 
