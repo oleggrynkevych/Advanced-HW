@@ -51,52 +51,76 @@ const responsePlanet = fetch(url + urlPlanet)
     .then(value => {return value.json()});
 
 const containerTwo = document.createElement("div");
+containerTwo.className = "container_two";
 
-function getInfoAboutPlanets() {
-    containerTwo.className = "container_two";
-    document.body.append(containerTwo);
+const btnNext = document.createElement("button");
+btnNext.className = "btn_next";
 
-    const btnNext = document.createElement("button");
+const btnPrevious = document.createElement("button");
+btnPrevious.className = "btn_previous";
 
-    function getList(value){
-        for(let i = 0; i < value.results.length; i++){
-            const list = document.createElement("div");
-            list.className = "list";
-            list.innerHTML = `
-                <span id="nameOfPlanet">${value.results[i].name}</span>`;
-            containerTwo.append(list);
+btnNext.onclick = function () {loadMoreData(this)};
+btnPrevious.onclick = function () {loadMoreData(this)};
 
+function getList(value){
+    for(let i = 0; i < value.results.length; i++){
+        document.body.append(containerTwo);
 
-            btnNext.className = "btn_next";
-            btnNext.innerHTML = `
-                <span>NEXT >>></span>`;
-            containerTwo.append(btnNext);
+        const list = document.createElement("div");
+        list.className = "list";
+        list.innerHTML = `
+            <span id="nameOfPlanet">${value.results[i].name}</span>`;
+        containerTwo.append(list);
+
+        btnNext.innerHTML = `
+            <span>NEXT >>></span>`;
+        containerTwo.append(btnNext);
+
+        if (value.previous !== null) {
+            btnPrevious.innerHTML = `
+                <span><<< PREVIOUS</span>`;
+            containerTwo.prepend(btnPrevious);
         }
     }
+}
 
+function loadMoreData (button) {
+    let URL = "";
+
+    if (button.getAttribute(`next`)) {
+        URL = button.getAttribute(`next`);
+    } else {
+        URL = button.getAttribute(`previous`);
+    }
+
+    const response = fetch(URL)
+        .then(value => {return value.json()});
+                    
+    response.then(function (value){
+        if (value.next !== null) {
+            btnNext.style.visibility = "visible";
+            btnNext.setAttribute(`next`, value.next);
+        } else {
+            btnNext.style.visibility = "hidden";
+        }
+
+        if (value.previous !== null) {
+            btnPrevious.style.visibility = "visible";
+            btnPrevious.setAttribute(`previous`, value.previous);
+        } else {
+            btnPrevious.style.visibility = "hidden";
+        }
+
+        containerTwo.innerHTML = "";
+        getList(value);
+    })
+}
+
+function getInfoAboutPlanets() {
     responsePlanet.then(function(value) {
         getList(value);
 
-        btnNext.setAttribute(`next`, value.next);
-
-        if (value.next) {
-            
-            btnNext.addEventListener("click", () => {
-                const responseNext = fetch(btnNext.getAttribute(`next`))
-                    .then(value => {return value.json()});
-                    
-                responseNext.then(function (value){
-                    if (value.next !== null) {
-                        btnNext.setAttribute(`next`, value.next);
-                    } else {
-                        btnNext.style.visibility = "hidden";
-                    }
-
-                    containerTwo.innerHTML = "";
-                    getList(value);
-                })
-            }) 
-        }
+        btnNext.setAttribute(`next`, value.next);  
     })
 }
 

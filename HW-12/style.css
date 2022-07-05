@@ -97,7 +97,7 @@ body{
     margin: 4%;
 }
 
-.btn_next{
+.btn_next, .btn_previous{
     width: 300px;
     height: 60px;
     padding: 0 20px;
@@ -110,7 +110,7 @@ body{
     margin: 3% 4%;
 }
 
-.btn_next:hover{
+.btn_next:hover, .btn_previous:hover{
     color: #080454;
     background: white;
     box-shadow: 0 0 50px white;
