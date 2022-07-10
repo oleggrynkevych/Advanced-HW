@@ -1,0 +1,44 @@
+.title{
+    height: 100px;
+    width: 400px;
+    border: 3px solid white;
+    border-radius: 20px;
+    color: white;
+    background-color: transparent;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.title:hover, .homework:hover{
+    color: rgb(40, 47, 115);
+    background-color: white;
+}
+
+.container{
+    width: 750px;
+    height: 600px;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2% 0 0 2%;
+}
+
+.homework{
+    height: 70px;
+    width: 200px;
+    border: 3px solid white;
+    border-radius: 20px;
+    color: white;
+    background-color: transparent;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 2%;
+}
